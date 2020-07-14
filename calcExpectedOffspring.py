@@ -24,12 +24,15 @@ genotypeCounts = []
 with open(sys.argv[1]) as f:
     # Save integers in file as a list 
     for line in f:
+        num = '' # variable to hold values 
         for char in line:
+            # append the full number to list if space or newline is encountered
             if char == ' ' or char == '\n':
-                pass
+                genotypeCounts.append(num)
+                num = '' # empty variable 
             else:
-                genotypeCounts.append(char)
-
+                # Add number to variable
+                num += char
 Res = 0
 
 for types, counts in zip(genotype, genotypeCounts):
